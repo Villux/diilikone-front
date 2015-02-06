@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('diilikoneFront')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['$scope', 'ProvisionService', function ($scope, ProvisionService) {
     $scope.awesomeThings = [
       {
         'title': 'AngularJS',
@@ -55,4 +55,11 @@ angular.module('diilikoneFront')
     angular.forEach($scope.awesomeThings, function(awesomeThing) {
       awesomeThing.rank = Math.random();
     });
-  });
+
+    var data = {
+      'size': 10,
+      'group_id': 'asd'
+      }
+    var provisionData = ProvisionService.getProvision(data);
+
+  }]);
