@@ -1,0 +1,21 @@
+<form name="deal_owner" class="deal_owner">
+  <div class="basic-info-fields">
+    <input class="first-name" ng-model="user.first_name" placeholder="Etunimi" name="first_name" required>
+    <input class="last-name" ng-model="user.last_name" placeholder="Sukunumi" name="last_name" required>
+    <input class="email" ng-model="user.email" type="email" placeholder="Sähköposti" name="email" required>
+  </div>
+  <div class="other-information">
+    <input class="guild" placeholder="Kilta" name="guild" ng-model="user.guild" required>
+    <select class="class_year" ng-model="user.class_year" name="class_year" required>
+      <option>1</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>N</option>
+    </select>
+  </div>
+  <div class="deal-size-container">
+    <input class="deal-size" placeholder="Lehdet" name="deal_size" ng-model="user.deal_size" required dealsize>
+  </div>
+  <span>{{ deal_owner.class_year.$error }} lol</span>
+</form>
