@@ -1,21 +1,31 @@
-<form name="deal_owner" class="deal_owner">
+<form name="deal_owner" class="deal_owner" novalidate>
   <div class="basic-info-fields">
-    <input class="first-name" ng-model="user.first_name" placeholder="Etunimi" name="first_name" required>
+    <input class="first-name leftTopBorder" ng-model="user.first_name" placeholder="Etunimi" name="first_name" required>
     <input class="last-name" ng-model="user.last_name" placeholder="Sukunumi" name="last_name" required>
-    <input class="email" ng-model="user.email" type="email" placeholder="Sähköposti" name="email" required>
+    <input class="email rightTopBorder" ng-model="user.email" type="email" placeholder="Sähköposti" name="email" required>
   </div>
   <div class="other-information">
+    <input class="phone" placeholder="+358 40 123123" name="phone" ng-model="user.phone">
     <input class="guild" placeholder="Kilta" name="guild" ng-model="user.guild" required>
-    <select class="class_year" ng-model="user.class_year" name="class_year" required>
-      <option>1</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>N</option>
-    </select>
+    <div class="select-style">
+      <select class="class_year" ng-model="user.class_year" ng-init="user.class_year = 1" name="class_year" required>
+        <option value="1">Vuosikurssi: 1</option>
+        <option value="2">Vuosikurssi: 2</option>
+        <option value="3">Vuosikurssi: 3</option>
+        <option value="4">Vuosikurssi: 4</option>
+        <option value="5">Vuosikurssi: 5</option>
+        <option value="N">Vuosikurssi: N</option>
+      </select>
+    </div>
   </div>
-  <div class="deal-size-container">
-    <input class="deal-size" placeholder="Lehdet" name="deal_size" ng-model="user.deal_size" required dealsize>
+  <div class="formSubheading leftBottomBorder rightBottomBorder">
+    <h4>Lehtien määrä</h4>
+    <button class="leftTop leftBottom decrease-button" ng-disabled="user.deal_size === 25"> - </button>
+    <div ng-init="user.deal_size = 25">
+      <h4>
+        {{user.deal_size}}
+      </h4>
+    </div>
+    <button class="rightTop rightBottom increase-button" > + </button>
   </div>
-  <span>{{ deal_owner.class_year.$error }} lol</span>
 </form>
